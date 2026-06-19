@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 快速识别游戏用途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #faf8f5;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fffdfa;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            padding: 2.5rem 2rem;
+        }
+        @media (max-width: 540px) {
+            body { padding: 1rem 0.6rem; }
+            .page { padding: 1.8rem 1.2rem; border-radius: 20px; }
+        }
+
+        /* 主视觉 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #ece7e0;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3d352e;
+        }
+        .hero h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #8a7e73;
+            margin-top: 0.3rem;
+            letter-spacing: 1px;
+        }
+        .hero .tagline {
+            margin-top: 0.8rem;
+            font-size: 1.05rem;
+            color: #6b5f54;
+            background: #f3efe9;
+            display: inline-block;
+            padding: 0.25rem 1.2rem;
+            border-radius: 50px;
+        }
+
+        /* 信息卡片式排版 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 1.8rem;
+        }
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: #f7f3ed;
+            border-radius: 20px;
+            padding: 1.6rem 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #3f362e;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h3 i {
+            font-style: normal;
+            background: #d9cfc2;
+            color: #2e2b28;
+            font-size: 0.75rem;
+            padding: 0 0.5rem;
+            border-radius: 20px;
+            line-height: 1.6;
+        }
+        .card p {
+            font-size: 0.96rem;
+            color: #4f453d;
+            margin-bottom: 0.4rem;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.3rem;
+        }
+        .card li {
+            font-size: 0.92rem;
+            color: #5b5047;
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.3rem;
+            color: #b3a497;
+            font-weight: bold;
+        }
+
+        /* 引用块 / 提示框 */
+        .insight-box {
+            background: #f1ede6;
+            border-left: 5px solid #bfb09f;
+            padding: 1.3rem 1.6rem;
+            border-radius: 0 14px 14px 0;
+            margin: 1.8rem 0;
+            font-size: 0.98rem;
+            color: #3a322c;
+        }
+        .insight-box strong {
+            color: #2d241e;
+        }
+        .insight-box a {
+            color: #5f4e3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c9bcad;
+        }
+        .insight-box a:hover {
+            color: #3a2e25;
+            text-decoration-color: #8f7b66;
+        }
+
+        /* 简单段落 */
+        .plain-section {
+            margin: 1.8rem 0 1.4rem;
+        }
+        .plain-section p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+        }
+        .plain-section a {
+            color: #5f4e3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c9bcad;
+        }
+        .plain-section a:hover {
+            color: #3a2e25;
+        }
+
+        .faq-mini {
+            background: #f7f3ed;
+            border-radius: 18px;
+            padding: 1.5rem 1.6rem;
+            margin: 1.8rem 0 1rem;
+        }
+        .faq-mini h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #3f362e;
+            margin-bottom: 0.6rem;
+        }
+        .faq-mini .q-item {
+            margin: 0.7rem 0;
+        }
+        .faq-mini .q-item strong {
+            font-weight: 500;
+            color: #3d322b;
+            display: block;
+            font-size: 0.92rem;
+        }
+        .faq-mini .q-item span {
+            font-size: 0.9rem;
+            color: #5b5047;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5ddd4;
+            margin: 1.6rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9c8f81;
+            margin-top: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>爱游戏<small>用途识别 · 信息卡片</small></h1>
+        <div class="tagline">快速看清这个网站为你准备了什么</div>
+    </div>
+
+    <!-- 用途卡片：两个核心维度 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>🎮 直接用途 <i>查询·浏览</i></h3>
+            <p>聚合游戏信息，方便你快速了解每款游戏的类型、平台与基本特点。适合用来做初步筛选和发现感兴趣的作品。</p>
+            <ul>
+                <li>游戏分类与标签</li>
+                <li>简要玩法说明</li>
+                <li>支持平台一览</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>📋 间接用途 <i>参考·对比</i></h3>
+            <p>通过结构化的卡片展示，你可以横向比较不同游戏的定位，辅助决策“哪一款更适合自己”。</p>
+            <ul>
+                <li>风格与题材对比</li>
+                <li>上手难度参考</li>
+                <li>适合场景提示</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 适合人群卡片（单张宽卡片） -->
+    <div class="card" style="grid-column: 1 / -1; margin-top: 0.4rem;">
+        <h3>👥 适合这样的人群</h3>
+        <p>如果你经常遇到以下情况，<strong>爱游戏</strong>的信息卡片方式也许能帮你省下一些时间：</p>
+        <ul>
+            <li>想快速了解一款陌生游戏的基本面貌，不想看冗长的评测</li>
+            <li>在几款游戏之间犹豫，需要一份简洁的对比参考</li>
+            <li>只是想随便翻翻，看看最近有什么值得关注的作品</li>
+        </ul>
+        <p style="margin-top: 0.8rem; font-size: 0.92rem; color: #6b5f54;">网站本身不提供下载或破解，仅做信息整理与展示。</p>
+    </div>
+
+    <!-- 引用块/提示框：自然链接段落 -->
+    <div class="insight-box">
+        <strong>💡 使用建议</strong><br>
+        当你打开 <a href="https://cnm-aiyouxi.com.cn">爱游戏</a> 时，建议先浏览首页的分类卡片，找到你感兴趣的游戏类型，再点进具体页面查看详细说明。卡片中的标签和简述能帮你快速判断是否值得进一步了解。如果你有明确想找的游戏，也可以利用站内的搜索或筛选功能（如果有的话）。整体来说，这个网站更适合作为“游戏发现与初步了解”的工具，而非深度资料库。
+    </div>
+
+    <!-- 自然链接段落（嵌入在普通段落中） -->
+    <div class="plain-section">
+        <p>很多用户第一次来 <a href="https://cnm-aiyouxi.com.cn">爱游戏</a> 时，会好奇这个网站到底能做什么。简单说，它把游戏信息做成了类似“卡片”的样子，每张卡片集中展示一款游戏的核心信息：名称、类型、平台、一句话简介。你不需要注册或登录，直接浏览就可以。这种方式对于想快速筛选游戏的人比较友好，尤其是当你对某个类型感兴趣，但又不确定具体哪款游戏适合自己时。</p>
+        <p>另外，网站的页面结构比较清晰，没有太多广告或复杂跳转，你可以专注于内容本身。如果你是一名轻度玩家，或者平时没有太多时间研究游戏，那么 <a href="https://cnm-aiyouxi.com.cn">爱游戏</a> 的信息卡片形式可能会让你觉得轻松一些。</p>
+    </div>
+
+    <!-- FAQ 摘要（小提示风格） -->
+    <div class="faq-mini">
+        <h4>❓ 常见疑问摘要</h4>
+        <div class="q-item">
+            <strong>Q：这个网站包含所有游戏吗？</strong>
+            <span>A：不包含所有，主要收录有一定知名度的作品，部分独立游戏或新作可能没有覆盖。</span>
+        </div>
+        <div class="q-item">
+            <strong>Q：卡片里的信息准确吗？</strong>
+            <span>A：信息来源于公开资料整理，已尽量保证准确，但建议以官方信息为准。</span>
+        </div>
+        <div class="q-item">
+            <strong>Q：需要付费使用吗？</strong>
+            <span>A：完全免费，无需注册或订阅。</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        基于公开信息整理 · 用途说明页 · 内容持续更新
+    </div>
+
+</div>
+</body>
+</html>
