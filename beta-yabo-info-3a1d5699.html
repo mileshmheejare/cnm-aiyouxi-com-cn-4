@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>yabo.com – 稳定信息入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fc;
+            color: #1a1f2b;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0b0e1a 0%, #1b2335 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            color: #eef1f8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #5b7ef0, #7ea2f7, #5b7ef0);
+            background-size: 200% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 span {
+            color: #7ea2f7;
+            font-weight: 600;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+            flex: 1;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #5b7ef0;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 3px solid #5b7ef0;
+            padding-left: 0.8rem;
+        }
+
+        .intro-text {
+            background: white;
+            padding: 2rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            color: #2c3346;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.8rem 1.6rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0, 20, 50, 0.04);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(91, 126, 240, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(91, 126, 240, 0.10);
+            border-color: rgba(91, 126, 240, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1b2335;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h3 .emoji-icon {
+            font-size: 1.3rem;
+            background: #edf2ff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card p {
+            color: #3d445b;
+            font-size: 0.95rem;
+        }
+
+        .audience-section {
+            background: white;
+            padding: 2rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            margin: 2.5rem 0;
+            border-left: 6px solid #5b7ef0;
+        }
+
+        .audience-section .label-sm {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #5b7ef0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .audience-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0.5rem 0 1.2rem;
+            color: #111827;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            list-style: none;
+        }
+
+        .audience-tags li {
+            background: #eef2ff;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #1f2b4b;
+            font-weight: 450;
+            border: 1px solid #d6e0ff;
+        }
+
+        .link-paragraph {
+            background: white;
+            padding: 1.8rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin: 2rem 0 1.5rem;
+            font-size: 1rem;
+            color: #1f2a3e;
+            border: 1px solid #eaedf5;
+        }
+
+        .link-paragraph a {
+            color: #3b6df0;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid transparent;
+            transition: border-color 0.15s, color 0.1s;
+        }
+
+        .link-paragraph a:hover {
+            color: #1f4bcf;
+            border-bottom-color: #3b6df0;
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e7f0;
+        }
+
+        .faq-item:last-child, .faq-item:nth-last-child(2) {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.98rem;
+            margin-bottom: 0.25rem;
+            color: #1b2335;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #4c5670;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3.5rem;
+            font-size: 0.8rem;
+            color: #6f7891;
+            border-top: 1px solid #dfe5f0;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 2.8rem 1.2rem 2.5rem; }
+            .container { padding: 1.8rem 1rem 3rem; }
+            .intro-text { padding: 1.5rem; }
+            .card-grid { gap: 1.2rem; }
+            .faq-mini { grid-template-columns: 1fr; }
+            .audience-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1><span>yabo.com</span> · 稳定访问与页面说明</h1>
+    <p class="subhead">了解平台定位、适用场景与信息结构，找到最适合自己的使用方式。</p>
+</header>
+
+<main class="container">
+
+    <!-- 介绍段落：稳定入口与说明 -->
+    <div class="intro-text">
+        <div class="section-label">背景与定位</div>
+        <p>在信息流动频繁的网络环境中，一个可靠、可长期记忆的域名往往比临时入口更重要。<strong>yabo.com</strong> 作为持续维护的站点标识，承载着功能聚合与内容索引的作用。不论你是因为好奇而初次浏览，还是希望定期获取更新，理解其页面架构与设计意图，都有助于提升使用效率。</p>
+        <p>本文档从信息卡片角度出发，梳理了该站点的核心用途、适用人群以及内容组织方式，力求用简洁清晰的模块帮助读者快速建立认知，同时保持对页面结构和稳定入口的理解。</p>
+    </div>
+
+    <!-- 用途卡片：三个维度 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3><span class="emoji-icon">🗂️</span> 信息聚合</h3>
+            <p>集中展示与特定主题相关的索引、说明和参考内容，便于使用者按需查找，无需在多个页面间反复跳转。</p>
+        </div>
+        <div class="card">
+            <h3><span class="emoji-icon">🔗</span> 直达链路</h3>
+            <p>通过清晰的内外链接，将常用资源、更新日志与辅助页面串联，减少检索成本，提高浏览的连续性。</p>
+        </div>
+        <div class="card">
+            <h3><span class="emoji-icon">📋</span> 场景说明</h3>
+            <p>围绕用户可能遇到的实际场景（首次了解、功能查询、常见疑问等），页面提供了对应的引导与解释模块。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群区块 -->
+    <div class="audience-section">
+        <div class="label-sm">适合这样的你</div>
+        <h2>谁更适合使用这个信息页面？</h2>
+        <ul class="audience-tags">
+            <li>初次接触、希望了解概况的浏览者</li>
+            <li>需要稳定记忆入口的长期使用者</li>
+            <li>想通过结构化卡片快速获取要点的人</li>
+            <li>对页面内容布局和分类有偏好的读者</li>
+            <li>寻求轻量说明而非复杂文档的用户</li>
+        </ul>
+    </div>
+
+    <!-- 自然链接段落：嵌入 yabo.com -->
+    <div class="link-paragraph">
+        <p>对于希望直接访问该站点的用户，可通过浏览器地址栏输入 <a href="https://beta-yabo.com">yabo.com</a> 抵达当前信息页面。该域名保持了相对简洁的拼写形式，便于记忆与分享。同时页面内部的所有导航与外部引用均统一使用该地址作为基础参照，避免因中间页变化带来的混淆。建议将 <strong>yabo.com</strong> 加入书签以便随时查阅，尤其当你需要反复核对页面内容或索引结构时。</p>
+    </div>
+
+    <!-- FAQ摘要：简短答疑 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">页面内容会频繁变化吗？</div>
+            <div class="faq-a">结构框架保持相对稳定，但内部卡片和说明性文字会根据实际需要做迭代。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否支持移动设备浏览？</div>
+            <div class="faq-a">采用响应式设计，在手机和平板设备上均能保持可读性，布局自动适配。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">链接安全吗？</div>
+            <div class="faq-a">本页面仅引用 <a href="https://beta-yabo.com" style="color:#3b6df0; text-decoration:none; border-bottom:1px solid #3b6df0;">yabo.com</a> 自身地址，不嵌入第三方未知链接。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">我可以分享这个页面吗？</div>
+            <div class="faq-a">当然，直接分享 <a href="https://beta-yabo.com" style="color:#3b6df0; text-decoration:none;">yabo.com</a> 链接即可，推荐配合简短说明。</div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <span>信息卡片式页面 · 基于稳定入口与内容说明构建 · 版本 2025</span>
+    </div>
+
+</main>
+
+</body>
+</html>
