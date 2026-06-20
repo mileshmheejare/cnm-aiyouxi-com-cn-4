@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f2f2f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+      color: #2e2e2c;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 柔和叙事开场 */
+    .story-hero {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+    .story-hero h1 {
+      font-weight: 350;
+      font-size: 2.4rem;
+      letter-spacing: -0.01em;
+      color: #1f1f1d;
+      border-left: 4px solid #bfb7ae;
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .story-hero .opening {
+      background: #ffffffdd;
+      backdrop-filter: blur(1px);
+      padding: 1.6rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.04);
+      font-size: 1.1rem;
+      color: #3b3b38;
+      max-width: 80%;
+    }
+    @media (max-width: 600px) {
+      .story-hero .opening {
+        max-width: 100%;
+        padding: 1.2rem 1.5rem;
+      }
+      .story-hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* 通用卡片分区 */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px #e6e4df;
+      transition: box-shadow 0.15s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04), 0 0 0 1px #d6d2cb;
+    }
+    .card h2 {
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #2a2a27;
+      border-bottom: 1px solid #eae7e1;
+      padding-bottom: 0.6rem;
+    }
+
+    /* 特点列表 —— 克制简练 */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      margin-top: 0.8rem;
+    }
+    .feature-list li {
+      flex: 1 1 180px;
+      padding-left: 1.6rem;
+      position: relative;
+      font-size: 1rem;
+      color: #3d3d39;
+    }
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #9e9489;
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    /* 提示 & 场景段落 */
+    .gentle-note {
+      background: #f8f7f4;
+      border-radius: 32px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 1.2rem 0;
+      color: #3b3b37;
+      border: 1px solid #e5e1da;
+      font-size: 0.96rem;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 1.5rem 0 0.4rem;
+    }
+    .scene-item {
+      flex: 1 1 200px;
+      background: #faf9f7;
+      border-radius: 20px;
+      padding: 1.4rem 1.4rem 1.6rem;
+      border: 1px solid #eae6df;
+    }
+    .scene-item strong {
+      display: block;
+      font-weight: 480;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #2f2f2b;
+    }
+    .scene-item p {
+      font-size: 0.92rem;
+      color: #55534e;
+    }
+
+    /* 引用式 FAQ 摘要 */
+    .faq-digest {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+      margin: 1.2rem 0;
+    }
+    .faq-digest dt {
+      font-weight: 450;
+      color: #2f2e2a;
+      border-left: 3px solid #b8b0a5;
+      padding-left: 0.8rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.98rem;
+    }
+    .faq-digest dd {
+      font-size: 0.9rem;
+      color: #5a5852;
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+    }
+    @media (max-width: 600px) {
+      .faq-digest {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 温和结尾 */
+    .closing-note {
+      margin-top: 2.8rem;
+      padding: 1.6rem 0;
+      border-top: 1px solid #ddd9d1;
+      font-size: 0.95rem;
+      color: #6a6760;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      color: #3f3c36;
+      text-decoration: none;
+      border-bottom: 1px solid #c9c2b7;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #1f1e1a;
+      color: #1f1e1a;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #cbc5bb;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #3b3934;
+      margin-top: 1.2rem;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .btn-soft:hover {
+      background: #ebe7e0;
+      border-color: #b0a89b;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+      .feature-list li {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 叙事开场 -->
+  <div class="story-hero">
+    <h1>百家乐 · 简明指南</h1>
+    <div class="opening">
+      第一次接触，不必着急。规则比想象中更清晰，节奏也更容易跟上。
+    </div>
+  </div>
+
+  <!-- 承接段落：从何处开始 -->
+  <div class="card">
+    <h2>从一张牌桌开始</h2>
+    <p style="margin-bottom: 0.8rem;">
+      多数人认识 <a href="https://main--baijiale.com">百家乐</a>，是从旁观开始的。庄家与闲家各发两张牌，点数接近九的一方获胜。没有复杂的组合，只有三种可能的结果：庄、闲、和。这种简洁，也正是许多人在牌桌边停留的原因。
+    </p>
+    <ul class="feature-list">
+      <li>只记点数：K、Q、J、10 计 0 点，A 计 1 点，其余按面值</li>
+      <li>补牌规则由系统执行，玩家只需选择下注区域</li>
+      <li>每局独立，不受前一局影响</li>
+      <li>庄家抽水 5% 是常见惯例</li>
+    </ul>
+    <div class="gentle-note">
+      ⚡ 提示：初次游玩，先观察几局，了解补牌逻辑，比匆忙下注更有帮助。
+    </div>
+  </div>
+
+  <!-- 特点卡片：理性视角 -->
+  <div class="card" style="padding-bottom: 1.8rem;">
+    <h2>为什么许多人选择它</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem;">
+      <div style="flex: 1 1 160px;">
+        <div style="font-weight: 460; margin-bottom: 0.2rem;">节奏平稳</div>
+        <p style="font-size: 0.9rem; color: #55534e;">一局约 40 秒，不拖沓，适合从容思考。</p>
+      </div>
+      <div style="flex: 1 1 160px;">
+        <div style="font-weight: 460; margin-bottom: 0.2rem;">规则固定</div>
+        <p style="font-size: 0.9rem; color: #55534e;">补牌由规则自动判定，没有人为选择偏差。</p>
+      </div>
+      <div style="flex: 1 1 160px;">
+        <div style="font-weight: 460; margin-bottom: 0.2rem;">下注简洁</div>
+        <p style="font-size: 0.9rem; color: #55534e;">庄、闲、和，三个区域涵盖全部可能。</p>
+      </div>
+    </div>
+    <!-- 场景嵌入 -->
+    <div class="scene-grid">
+      <div class="scene-item">
+        <strong>🎲 新手场景</strong>
+        <p>坐在桌旁，先不下注，看荷官发牌、翻牌、计点。两三轮后自然熟悉流程。</p>
+      </div>
+      <div class="scene-item">
+        <strong>📘 学习场景</strong>
+        <p>把补牌规则表存在手机里，遇到疑问随时对照，比硬记轻松。</p>
+      </div>
+      <div class="scene-item">
+        <strong>🕊️ 休闲场景</strong>
+        <p>设定时间或预算，玩几局就休息，保持轻松心态。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 访问提醒 + FAQ 摘要 -->
+  <div class="card">
+    <h2>访问前的小提醒</h2>
+    <p style="margin-bottom: 1rem;">
+      前往 <a href="https://main--baijiale.com">百家乐</a> 网站时，建议使用稳定的网络环境，并提前熟悉界面布局。大多数平台提供「试玩」或「演示」模式，非常适合练习。
+    </p>
+    <dl class="faq-digest">
+      <dt>需要注册才能看规则吗？</dt>
+      <dd>通常不需要。很多网站公开游戏规则和赔率，注册前即可查阅。</dd>
+      <dt>最低下注额一般是多少？</dt>
+      <dd>视平台而定，常见有 10、25、50 不等的单位，可先查看帮助页面。</dd>
+      <dt>牌桌有几种？</dt>
+      <dd>常见的有标准百家乐、免水百家乐（庄家抽水不同）以及极速版本。</dd>
+      <dt>和局怎么算？</dt>
+      <dd>下注「和」且结果相符，通常赔付 8 倍或 9 倍，但出现概率较低。</dd>
+    </dl>
+    <div style="text-align: right; margin-top: 0.4rem;">
+      <span class="btn-soft">📄 常见问题 · 简记</span>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="closing-note">
+    <p style="margin-bottom: 0.3rem;">了解规则，保持节奏，比什么都重要。</p>
+    <p style="font-size: 0.88rem; letter-spacing: 0.03em;">每一局都是新的开始。</p>
+  </div>
+
+</body>
+</html>
