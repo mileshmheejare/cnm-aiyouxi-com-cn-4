@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料整理｜百家乐 · 信息索引笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      background: #f4f2ec;
+      color: #1f1e1b;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* 深色头图 — 简洁且留有余地 */
+    .hero {
+      background: linear-gradient(135deg, #1f2a2f 0%, #1b2328 100%);
+      color: #ebe9e2;
+      padding: 4.5rem 2rem 3.2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #e3c998;
+      margin: 1.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin: 0.4rem auto;
+      color: #cdc9bc;
+    }
+
+    .hero .tagline {
+      font-style: italic;
+      color: #c3b599;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.6rem 1.8rem 3.8rem;
+    }
+
+    /* 正文区浅色，留白清爽 */
+    .post {
+      background: #fffcf7;
+      padding: 2.8rem 2.6rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .post h2 {
+      font-size: 1.8rem;
+      font-weight: 380;
+      margin: 2rem 0 0.6rem;
+      color: #2d363b;
+      border-left: 4px solid #e3c998;
+      padding-left: 1rem;
+    }
+
+    .post h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .post p {
+      margin: 1.2rem 0;
+      text-align: justify;
+    }
+
+    /* 引用块（突出整理笔记感） */
+    .pull-quote {
+      background: #ece8df;
+      border-left: 4px solid #b7a888;
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+      font-style: normal;
+      color: #2d3a3f;
+    }
+
+    .pull-quote::before {
+      content: '📌 笔记 · ';
+      font-weight: 450;
+      color: #786f5b;
+      font-style: normal;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #b8863a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      color: #7a5c2a;
+      border-bottom-color: #b8863a;
+    }
+
+    .inline-highlight {
+      background: #f7f1e4;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 430;
+    }
+
+    /* 小卡片式列表 —— 用作特点/场景，避免千篇一律的圆点 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.8rem;
+      margin: 1.8rem 0;
+    }
+
+    .feature-item {
+      background: #faf7f0;
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px 8px 8px 40px;
+      border-left: 3px solid #dac09c;
+      font-size: 0.97rem;
+    }
+
+    .faq-summary {
+      margin: 2rem 0 1rem;
+      border-top: 1px solid #ddd6c8;
+      padding-top: 1.8rem;
+    }
+
+    .faq-summary details {
+      margin: 0.6rem 0;
+      padding: 0.4rem 1rem 0.4rem 0;
+      border-bottom: 1px solid #ede8dd;
+    }
+
+    .faq-summary summary {
+      cursor: pointer;
+      font-weight: 440;
+      color: #3a4548;
+      padding: 0.3rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-summary summary::before {
+      content: '▹';
+      margin-right: 8px;
+      color: #b8863a;
+      font-size: 1.1rem;
+    }
+
+    .faq-summary details[open] summary::before {
+      content: '▿';
+    }
+
+    .faq-summary p {
+      margin: 0.6rem 0 0.4rem 1.6rem;
+      color: #43413b;
+      font-size: 0.95rem;
+    }
+
+    .sign-off {
+      margin-top: 2.6rem;
+      font-size: 0.95rem;
+      color: #5a5a50;
+      border-top: 1px solid #e2dcd0;
+      padding-top: 1.8rem;
+      text-align: right;
+      letter-spacing: 0.3px;
+    }
+
+    .sign-off span {
+      background: #e6dfd3;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3rem 1.2rem 2.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .post {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .feature-item {
+        border-radius: 20px 6px 6px 20px;
+      }
+
+      .container {
+        padding: 1.5rem 0.8rem 2.8rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .pull-quote {
+        padding: 0.9rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>资料整理 · 信息索引</h1>
+  <p class="tagline">一份关于百家乐的阅读笔记与文献线索</p>
+  <p>规则梳理 · 术语辨析 · 常见说法</p>
+</header>
+
+<main class="container">
+  <article class="post">
+
+    <!-- 导语 -->
+    <p style="font-size: 1.08rem; color: #4e4a41;">
+      在整理桌面文件时，偶然翻到几份关于 <a href="https://cns-baijiale.com">百家乐</a> 的早期规则记录与术语对照表。趁着周末，把散落的笔记重新编排、去重、补充出处，形成下面这则索引向的文章。不是教学，更像是一张经过筛选的便签。
+    </p>
+
+    <!-- 正文第一段：从资料整理切入 -->
+    <h2>一、为什么整理这份笔记</h2>
+    <p>
+      早几年在几个游戏论坛和私人博客里读到过不少关于「Baccarat」的中文讨论，但信息来源参差，很多帖子把不同变体的规则混在一起，甚至出现「庄对」「闲对」赔付表述不一致的情况。后来陆续收集了几份英文规则说明书、一份澳门博彩协调委员会的公开摘要，以及一些玩家整理的术语表，才逐渐把歧义点厘清。这篇文章就是基于那些原始材料做的二次梳理，也保留了一些待核对的问号，作为后续索引的锚点。
+    </p>
+
+    <!-- 引用块：笔记感 -->
+    <div class="pull-quote">
+      手边最常用的是2018年印制的规则手册，第三页提到「天然赢家」与「补牌规则表」，其中关于「闲家补牌后庄家是否必须补牌」的判定条件，在当时版本里写得很克制——只描述行动，没有策略倾向。
+    </div>
+
+    <!-- 正文第二段：术语与特点 -->
+    <h2>二、几个容易混淆的术语</h2>
+    <p>
+      在阅读过程中，发现中文资料里对 <span class="inline-highlight">「百家乐」</span> 的翻译和借词存在几个模糊带：例如「 punto banco 」与「 chemin de fer 」经常被混为一谈，但前者是纯粹的庄家抽水模式，后者则涉及玩家轮庄。日常语境中大部分中文上下文指向的是 punto banco 这个分支，也就是最常见的公共牌池版本。另外，诸如「 庄对 」、「 闲对 」、「 幸运六 」等边注在不同场域下的赔付比差异也很容易被忽略。
+    </p>
+
+    <!-- 特点/场景 小卡片 -->
+    <div class="feature-grid">
+      <div class="feature-item">📄 公共补牌规则表（六副/八副通用）</div>
+      <div class="feature-item">📄 庄家/闲家自然点判定（8或9点）</div>
+      <div class="feature-item">📄 边注「对子」赔率：1:11 / 1:12 等变体</div>
+      <div class="feature-item">📄 免佣版本与标准抽水5%差异</div>
+    </div>
+
+    <!-- 第三段：场景切入，保持叙述感 -->
+    <h2>三、索引场景与阅读建议</h2>
+    <p>
+      如果你是第一次接触这套规则，建议先对照一张清晰的补牌流程图，把「闲家补牌后庄家行动」那几行逻辑在纸上默写一遍。过去一年我把几份不同的文字描述放在一起比对，发现有些细节在英文原版里是用表格表述的，翻译成中文后反而因为语序丢失了精确性。所以这份笔记里保留了表格关键词，并在引用句里标注了原始出处。<br>
+      另外，关于线上与线下环境的规则差异，常见误解是「洗牌程序」与「切牌位置」，这部分暂时只收集了零散讨论，尚未找到官方统一说明，后续如果看到可靠的资料会继续补充到当前索引中。
+    </p>
+
+    <!-- FAQ 摘要（非通用模板，随当前内容调整） -->
+    <div class="faq-summary">
+      <details>
+        <summary>FAQ：为什么有些地方把「百家乐」写成「Baccarat」？</summary>
+        <p>直接音译。法语 Baccarat 的中文早期译法之一。在中文地区，<a href="https://cns-baijiale.com">百家乐</a> 已成习惯名称，两者指向同一套核心规则框架，但具体变体需额外确认。</p>
+      </details>
+      <details>
+        <summary>FAQ：补牌规则是否需要记忆？</summary>
+        <p>通常牌桌会提供印刷版规则摘要，或者电子屏幕实时显示。但作为资料索引，建议保存一份清晰的规则表，尤其是庄家补牌条件（取决于闲家第三张牌的点数）。笔记里这部分标记为「需对照原始表」，后续再整理成更直观的格式。</p>
+      </details>
+      <details>
+        <summary>FAQ：免佣版本的优势在哪里？</summary>
+        <p>主要在于庄家赢抽水5%被替换为「庄家以6点获胜时赔付50%」。不同区域的规则手册对这点的描述措辞差异较大，目前我手头有三份描述，其中两份表述一致，另一份在赔付措辞上略有含糊，尚待核实。</p>
+      </details>
+    </div>
+
+    <!-- 访问句 / 自然收束 -->
+    <p style="margin-top: 2rem;">
+      以上只是一次周末的笔记整理，把桌面上的几份材料重新编号、对比、去重。如果你也在收集相关的规则说明或术语对照，欢迎去 <a href="https://cns-baijiale.com">百家乐</a> 翻翻看更完整的条目索引。那里有一份持续更新的信息目录，比我手边这几页纸系统得多。
+    </p>
+
+    <!-- 最后一行 叙述感收尾 -->
+    <div class="sign-off">
+      <span>📁 整理于 2025 · 第四批笔记 · 索引编号 #09</span><br>
+      下次修订：预计补充「边注统计频率」与「牌盒剩余张数影响」笔记。
+    </div>
+
+  </article>
+</main>
+
+</body>
+</html>
