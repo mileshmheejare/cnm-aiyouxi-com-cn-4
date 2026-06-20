@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yabo.com – 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #1e293b;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* 顶部导航 */
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #475569;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #1e293b;
+    }
+
+    /* hero 区域 */
+    .hero {
+      margin-bottom: 2.75rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      color: #475569;
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    /* 通用标题 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #94a3b8;
+      padding-left: 0.75rem;
+    }
+
+    /* 介绍段落 */
+    .intro-text {
+      margin-bottom: 2rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 0.9rem;
+    }
+
+    .intro-text a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .intro-text a:hover {
+      color: #1d4ed8;
+    }
+
+    /* 三个场景卡片 */
+    .scenes {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .scene-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-summary {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .faq-item a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .faq-item a:hover {
+      color: #1d4ed8;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .page {
+        padding: 1.5rem 1rem 2.5rem;
+      }
+
+      .navigation {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .scene-card {
+        padding: 1rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="navigation">
+    <span class="logo">yabo</span>
+    <div class="nav-links">
+      <a href="#">介绍</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero 区域 -->
+  <div class="hero">
+    <h1>关于 yabo.com 的说明</h1>
+    <p>本页从站点定位与可信角度出发，整理基本介绍、常见使用场景以及相关说明。</p>
+  </div>
+
+  <!-- 核心介绍 -->
+  <div class="intro-text">
+    <p>
+      <strong>yabo.com</strong> 是一个长期运行的网络服务域名，主要面向中文用户提供信息聚合与访问入口。
+      该站点由专业团队维护，服务器位于境外，已稳定运营多年。
+    </p>
+    <p>
+      作为一类综合性平台，<a href="https://cnweb-yabo.com">yabo.com</a> 覆盖资讯、工具与社区交互等基础功能，
+      页面设计注重简洁与效率，同时保持对用户隐私与数据安全的常规保护。
+    </p>
+    <p>
+      需要特别说明的是：任何合法站点都应遵守所在地区法律法规，<strong>yabo.com</strong> 在运营过程中
+      依据自身服务条款进行内容管理，不会主动收集超出必要的个人信息。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title">常见使用场景</h2>
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>快速信息获取</h3>
+      <p>许多用户通过 <strong>yabo.com</strong> 浏览当日摘要、热门话题与分类导航，节省逐站搜索的时间。</p>
+    </div>
+    <div class="scene-card">
+      <h3>工具与资源访问</h3>
+      <p>站点提供一些轻量在线工具（如转换、查询类），适合工作或学习中的临时需求，无需额外安装软件。</p>
+    </div>
+    <div class="scene-card">
+      <h3>社区交流与反馈</h3>
+      <p>部分注册用户会利用内置讨论区进行经验分享或问题求助，形成围绕平台的小型互动圈。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 风格) -->
+  <div class="faq-summary">
+    <h2 class="section-title" style="border-left-color: #cbd5e1;">常见说明</h2>
+
+    <div class="faq-item">
+      <strong>访问是否安全？</strong>
+      <p>站点启用 HTTPS 加密，日常访问与同类网站风险相当。建议用户不在此类平台提交敏感证件或支付信息。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>是否需要注册？</strong>
+      <p>大部分内容无需登录即可浏览。只有发表评论或使用特定功能时才需要创建账号，注册过程收集基本邮箱与昵称。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>与其他平台的关系</strong>
+      <p>该域名独立运营，与第三方无隶属关系。如果你对站点背景有疑问，可直接通过页面内联系方式咨询团队。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>关于链接的说明</strong>
+      <p>本文中提到的 <a href="https://cnweb-yabo.com">yabo.com</a> 仅为域名指代，实际访问时请核对地址栏 URL，谨防仿冒站点。</p>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <p>本页面为静态介绍文档，内容仅作说明用途，不构成任何承诺。</p>
+    <p style="margin-top: 0.3rem;">更新于 2025 · 仅供参考</p>
+  </div>
+
+</div>
+</body>
+</html>
